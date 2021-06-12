@@ -24,7 +24,22 @@ This project allow API request 2 times per Minute. It does not allow simultaneou
 `http://localhost/throttle/api/v1/tasks` - this api(get) return all the tasks from DB.
 `http://localhost/throttle/api/v1/add-task` - this api(post) save the task with `title` and `task_summay`.
 `
+6. Add this db query for checking 
+```
+CREATE TABLE `task` (
+  `id` int(11) NOT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `task_summary` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `task` (`id`, `title`, `task_summary`) VALUES
+(1, 'Task 1', 'Testing ');
+ALTER TABLE `task`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `task`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+```
 
 ## New Framework CI v4.1.3 Setup
 
